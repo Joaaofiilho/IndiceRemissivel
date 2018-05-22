@@ -35,31 +35,35 @@ private:
         std::cout << raiz->getDado() << " ";
     }
 
-    void adicionar(int dado, No *raiz)
+    bool adicionar(int dado, No *atual)
     {
-        if(raiz == NULL)
-            raiz = new No(dado);
-        else
+        if(dado > atual->getDado())
         {
-            if(dado > raiz->getDado())
+            if(atual->getRight() == NULL)
             {
-                if(raiz->getRight() == NULL)
-                    raiz->setRight(new No(dado));
-                else
-                    adicionar(dado, raiz->getRight());
-                    //if (adicionar(dado, raiz->getLeft())){
-                    //    fb++;
-                    //    return !(fb == 0);
-                    //}
+                atual->setRight(new No(dado));
+                atual->decFb();
             }
-            if(dado < raiz->getDado())
+            else
             {
-                if(raiz->getLeft() == NULL)
-                    raiz->setLeft(new No(dado));
-                else
-                    adicionar(dado, raiz->getLeft());
-
+                if (adicionar(dado, atual->getRight()))
+                    atual->decFb();
             }
+            return !(atual->getFb() == 0);
+        }
+        else if(dado < atual->getDado())
+        {
+            if(atual->getLeft() == NULL)
+            {
+                atual->setLeft(new No(dado));
+                atual->incFb();
+            }
+            else
+            {
+                if(adicionar(dado, atual->getLeft()))
+                    atual->incFb();
+            }
+            return !(atual->getFb() == 0);
         }
     }
 
@@ -69,10 +73,10 @@ private:
             return NULL;
         else
         {
-            if(atual->getDado() < dado)
-                return buscar(atual->getLeft(), dado);
-            else if(atual->getDado() > dado)
+            if(dado > atual->getDado())
                 return buscar(atual->getRight(), dado);
+            else if(dado < atual->getDado())
+                return buscar(atual->getLeft(), dado);
             else
                 return atual;
         }
@@ -96,8 +100,10 @@ private:
             if(dado < atual->getDado())
                 remover(atual->getLeft(), dado, atual);
 
-            if(atual->getDado() == dado){
-                if(atual->getLeft() == NULL && atual->getRight() == NULL){
+            if(atual->getDado() == dado)
+            {
+                if(atual->getLeft() == NULL && atual->getRight() == NULL)
+                {
 
                     if(pai->getLeft() == atual)
                         pai->setLeft(NULL);
@@ -105,7 +111,9 @@ private:
                         pai->setRight(NULL);
                     delete atual;
 
-                }else if(atual->getLeft() == NULL || atual->getRight() == NULL){
+                }
+                else if(atual->getLeft() == NULL || atual->getRight() == NULL)
+                {
                     //Pegar o filho do que vai ser removido
                     No *filho;
                     if(atual->getLeft() == NULL)
@@ -120,7 +128,9 @@ private:
                         pai->setRight(filho);
 
                     delete atual;
-                }else{
+                }
+                else
+                {
                     //Encontrar o menor valor da direita ou maior da esquerda
                     int dadoSubstituto = buscarMenorDireita(atual->getRight());
 
@@ -134,13 +144,15 @@ private:
         }
     }
 
-    int buscarMenorDireita(No *atual){
+    int buscarMenorDireita(No *atual)
+    {
         if(atual->getLeft() == NULL)
             return atual->getDado();
         else return buscarMenorDireita(atual->getLeft());
     }
 
-    int altura(No *n){
+    int altura(No *n)
+    {
         if(n->getLeft() == n->getRight())
             return 1;
 
@@ -153,7 +165,8 @@ private:
             return hd+1;
     }
 
-    void balancear(){
+    void balancear()
+    {
 
     }
 
@@ -194,5 +207,10 @@ public:
     void remover(int dado)
     {
         remover(raiz, dado, NULL);
+    }
+
+    void getFb(int num)
+    {
+        cout << buscar(raiz, num)->getFb() << endl;
     }
 };
