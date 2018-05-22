@@ -6,6 +6,7 @@ public:
         left = NULL;
         right = NULL;
         this->dado = dado;
+        fb = 0;
     }
 
     void setLeft(No *left){
@@ -26,8 +27,19 @@ public:
     int getDado(){
         return dado;
     }
+    void incFb(){
+        fb++;
+    }
+    void decFb(){
+        fb--;
+    }
+    int getFb(){
+        return fb;
+    }
+
 private:
     No *left;
     No *right;
     int dado;
+    int fb;
 };
