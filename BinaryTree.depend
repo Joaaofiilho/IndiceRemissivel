@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1526397693 source:c:\users\joa-o\desktop\meus-projetos\c++\binarytree\main.cpp
+	<iostream>
+	"BinaryTree.hpp"
+
+1526398249 c:\users\joa-o\desktop\meus-projetos\c++\binarytree\binarytree.hpp
+	<iostream>
+	"No.hpp"
+
+1522767320 c:\users\joa-o\desktop\meus-projetos\c++\binarytree\no.hpp
+	<iostream>
+
+1527001163 source:c:\users\alunom35\desktop\binarytree\main.cpp
+	<iostream>
+	"BinaryTree.hpp"
+
+1527001162 c:\users\alunom35\desktop\binarytree\binarytree.hpp
+	<iostream>
+	"No.hpp"
+
+1527001162 c:\users\alunom35\desktop\binarytree\no.hpp
+	<iostream>
+
