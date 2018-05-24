@@ -17,7 +17,7 @@ int main()
     tree.adicionar(25);
 
     tree.exibirPreOrdem();
-    tree.getFb(7);
+    tree.getFb(12);
     //cout << tree.getAltura(7);
     return 0;
 }
