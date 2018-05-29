@@ -47,7 +47,11 @@ private:
             else
             {
                 if (adicionar(dado, atual->getRight()))
+                {
                     atual->decFb();
+                    if(atual->getFb() > 1 || atual->getFb() < -1)
+                        balancear(atual);
+                }
                 else
                     return false;
             }
@@ -64,6 +68,8 @@ private:
             {
                 if(adicionar(dado, atual->getLeft()))
                     atual->incFb();
+                if(atual->getFb() > 1 || atual->getFb() < -1)
+                    balancear(atual);
                 else
                     return false;
             }
@@ -131,10 +137,13 @@ private:
                         filho = atual->getLeft();
 
                     //Ligar o pai ao filho do que vai ser removido
-                    if(pai->getLeft() == atual){
+                    if(pai->getLeft() == atual)
+                    {
                         pai->setLeft(filho);
                         pai->decFb();
-                    }else{
+                    }
+                    else
+                    {
                         pai->setRight(filho);
                         pai->incFb();
                     }
@@ -176,9 +185,53 @@ private:
             return hd+1;
     }
 
-    void balancear()
+    void balancear(No *atual)
     {
+        if(atual->getLeft() != NULL)
+            balancear(atual->getLeft());
+        if(atual->getRight() != NULL)
+            balancear(atual->getRight());
 
+        if(atual->getFb() > 1)
+        {
+            if(atual->getLeft() != NULL && atual->getLeft()->getFb() < 0)
+                RDD(atual);
+            else
+                RDS(atual);
+        }
+        else if(atual->getFb() < -1)
+        {
+            if(atual->getRight() != NULL && atual->getRight()->getFb() > 0)
+                RDE(atual);
+            else
+                RES(atual);
+        }
+    }
+    //Falta atualizar os FBs
+    void RES(No *atual)
+    {
+        No *subDireita = atual->getRight();
+        atual->setRight(subDireita->getLeft());
+        subDireita->setLeft(atual);
+        if(atual == raiz)
+            raiz = subDireita;
+    }
+    void RDS(No *atual)
+    {
+        No *subEsquerda = atual->getLeft();
+        atual->setLeft(subEsquerda->getRight());
+        subEsquerda->setRight(atual);
+        if(atual == raiz)
+            raiz = subEsquerda;
+    }
+    void RDE(No *atual)
+    {
+        RDS(atual->getRight());
+        RES(atual);
+    }
+    void RDD(No *atual) {
+        RES(atual->getLeft());
+        RDS(atual);
     }
 
 public:

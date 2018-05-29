@@ -15,6 +15,7 @@ int main()
     tree.adicionar(21);
     tree.adicionar(19);
     tree.adicionar(25);
+    tree.adicionar(18);
 
     tree.exibirPreOrdem();
     tree.getFb(12);
