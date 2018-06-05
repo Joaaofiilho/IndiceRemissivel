@@ -2,7 +2,7 @@
 
 class No{
 public:
-    No(int dado){
+    No(string dado){
         left = NULL;
         right = NULL;
         this->dado = dado;
@@ -21,10 +21,10 @@ public:
     No* getRight(){
         return this->right;
     }
-    void setDado(int dado){
+    void setDado(string dado){
         this->dado = dado;
     }
-    int getDado(){
+    string getDado(){
         return dado;
     }
     void incFb(){
@@ -36,10 +36,13 @@ public:
     int getFb(){
         return fb;
     }
+    void setFb(int fb){
+        this->fb = fb;
+    }
 
 private:
     No *left;
     No *right;
-    int dado;
+    string dado;
     int fb;
 };

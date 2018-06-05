@@ -43,3 +43,20 @@
 1527605076 c:\users\alunom35\desktop\indiceremissivel-master\indiceremissivel-master\no.hpp
 	<iostream>
 
+1528213918 source:c:\users\alunom35\desktop\indiceremissivel\main.cpp
+	<iostream>
+	"BinaryTree.hpp"
+	"Controle.hpp"
+
+1528212667 c:\users\alunom35\desktop\indiceremissivel\binarytree.hpp
+	<iostream>
+	<string.h>
+	"No.hpp"
+
+1528211835 c:\users\alunom35\desktop\indiceremissivel\no.hpp
+	<iostream>
+
+1528214200 c:\users\alunom35\desktop\indiceremissivel\controle.hpp
+	<iostream>
+	<fstream>
+

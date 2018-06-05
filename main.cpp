@@ -3,22 +3,20 @@
 using namespace std;
 
 #include "BinaryTree.hpp"
+#include "Controle.hpp"
 int main()
 {
+    //indice remissivo como uma árvore AVL
+    //em cada Nó da arvore deverá ter uma lista que contém os numeros das linhas que a palavra aparece
+    //O texto e as palavras chaves ficam em arquivos distintos
+    //
     BinaryTree tree;
-    tree.adicionar(7);
-    tree.adicionar(5);
-    tree.adicionar(12);
-    tree.adicionar(2);
-    tree.adicionar(6);
-    tree.adicionar(9);
-    tree.adicionar(21);
-    tree.adicionar(19);
-    tree.adicionar(25);
-    tree.adicionar(18);
+    Controle controle;
 
-    tree.exibirPreOrdem();
-    tree.getFb(12);
+    controle.carregarTexto();
+    controle.carregarPC();
+
+    //tree.exibirPreOrdem();
     //cout << tree.getAltura(7);
     return 0;
 }

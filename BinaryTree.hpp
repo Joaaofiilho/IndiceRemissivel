@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 
 #include "No.hpp"
 class BinaryTree
@@ -8,7 +9,7 @@ private:
     void exibirPreOrdem(No *raiz)
     {
         //A ordem de exibir muda totalmente a ordem que a arvore sai
-        std::cout << raiz->getDado() << " ";
+        std::cout << raiz->getDado() << "/" << raiz->getFb() << " ";
         if(raiz->getLeft() != NULL)
             exibirPreOrdem(raiz->getLeft());
         if(raiz->getRight() != NULL)
@@ -35,7 +36,7 @@ private:
         std::cout << raiz->getDado() << " ";
     }
 
-    bool adicionar(int dado, No *atual)
+    bool adicionar(string dado, No *atual)
     {
         if(dado > atual->getDado())
         {
@@ -49,8 +50,8 @@ private:
                 if (adicionar(dado, atual->getRight()))
                 {
                     atual->decFb();
-                    if(atual->getFb() > 1 || atual->getFb() < -1)
-                        balancear(atual);
+                    //if(atual->getFb() > 1 || atual->getFb() < -1)
+                        //balancear(atual);
                 }
                 else
                     return false;
@@ -68,8 +69,8 @@ private:
             {
                 if(adicionar(dado, atual->getLeft()))
                     atual->incFb();
-                if(atual->getFb() > 1 || atual->getFb() < -1)
-                    balancear(atual);
+                //if(atual->getFb() > 1 || atual->getFb() < -1)
+                    //balancear(atual);
                 else
                     return false;
             }
@@ -77,7 +78,7 @@ private:
         }
     }
 
-    No* buscar(No* atual, int dado)
+    No* buscar(No* atual, string dado)
     {
         if(atual == NULL)
             return NULL;
@@ -92,79 +93,7 @@ private:
         }
     }
 
-    void remover(No* atual, int dado, No* pai)
-    {
-        /*
-        Nenhum filho: So remove
-        Um filho: O nó é removido da árvore e o único filho é ligado ao pai
-        Dois filhos:
-        Encontrar o menor valor da direita ou maior da esquerda
-        Substituir o local do Nó encontrado (o la de baixo) pelo Nó a ser removido
-        remover o Nó encontrado (o la de baixo)
-        */
-        if(atual != NULL)
-        {
-            if(dado > atual->getDado())
-                remover(atual->getRight(), dado, atual);
-
-            if(dado < atual->getDado())
-                remover(atual->getLeft(), dado, atual);
-
-            if(atual->getDado() == dado)
-            {
-                if(atual->getLeft() == NULL && atual->getRight() == NULL)
-                {
-                    if(pai->getLeft() == atual)
-                    {
-                        pai->setLeft(NULL);
-                        pai->decFb();
-                    }
-                    else
-                    {
-                        pai->setRight(NULL);
-                        pai->incFb();
-                    }
-
-                    delete atual;
-                }
-                else if(atual->getLeft() == NULL || atual->getRight() == NULL)
-                {
-                    //Pegar o filho do que vai ser removido
-                    No *filho;
-                    if(atual->getLeft() == NULL)
-                        filho = atual->getRight();
-                    else
-                        filho = atual->getLeft();
-
-                    //Ligar o pai ao filho do que vai ser removido
-                    if(pai->getLeft() == atual)
-                    {
-                        pai->setLeft(filho);
-                        pai->decFb();
-                    }
-                    else
-                    {
-                        pai->setRight(filho);
-                        pai->incFb();
-                    }
-                    delete atual;
-                }
-                else
-                {
-                    //Encontrar o menor valor da direita ou maior da esquerda
-                    int dadoSubstituto = buscarMenorDireita(atual->getRight());
-
-                    //remover o Nó encontrado (o la de baixo)
-                    remover(atual, buscar(dadoSubstituto)->getDado(), pai);
-
-                    //Substituir o local do Nó encontrado (o la de baixo) pelo Nó a ser removido
-                    atual->setDado(dadoSubstituto);
-                }
-            }
-        }
-    }
-
-    int buscarMenorDireita(No *atual)
+    string buscarMenorDireita(No *atual)
     {
         if(atual->getLeft() == NULL)
             return atual->getDado();
@@ -215,6 +144,8 @@ private:
         subDireita->setLeft(atual);
         if(atual == raiz)
             raiz = subDireita;
+        //calculaFb(atual);
+        //calculaFb(subDireita);
     }
     void RDS(No *atual)
     {
@@ -223,6 +154,8 @@ private:
         subEsquerda->setRight(atual);
         if(atual == raiz)
             raiz = subEsquerda;
+        //calculaFb(atual);
+        //calculaFb(subEsquerda);
     }
     void RDE(No *atual)
     {
@@ -234,13 +167,17 @@ private:
         RDS(atual);
     }
 
+    void calculaFb(No* no){
+        no->setFb(altura(no->getLeft()) - altura(no->getRight()));
+    }
+
 public:
     BinaryTree()
     {
         raiz = NULL;
     }
 
-    void adicionar(int dado)
+    void adicionar(string dado)
     {
         if(raiz == NULL)
             raiz = new No(dado);
@@ -263,17 +200,12 @@ public:
         cout << endl;
     }
 
-    No* buscar(int dado)
+    No* buscar(string dado)
     {
         return buscar(this->raiz, dado);
     }
 
-    void remover(int dado)
-    {
-        remover(raiz, dado, NULL);
-    }
-
-    void getFb(int num)
+    void getFb(string num)
     {
         cout << buscar(raiz, num)->getFb() << endl;
     }

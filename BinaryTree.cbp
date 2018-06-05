@@ -33,6 +33,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="BinaryTree.hpp" />
+		<Unit filename="Controle.hpp" />
 		<Unit filename="No.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
