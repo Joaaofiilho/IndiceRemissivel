@@ -1,9 +1,8 @@
 #include "Controle.h"
 
-Controle::Controle(string nomeArqTexto, string nomeArqPC)
+Controle::Controle()
 {
-    this->nomeArqTexto = nomeArqTexto;
-    this->nomeArqPC = nomeArqPC;
+    sameW = 0;
 }
 
 void Controle::run()
@@ -14,6 +13,10 @@ void Controle::run()
     int tam = palavras.size();
     for(int i = 0; i < tam; i++)
     {
+        int tamPal = palavras[i].size();
+        if(tamPal > sameW)
+            sameW = tamPal;
+
         palavras[i] = filtrarPalavra(palavras[i]);
         Node_B* plvChave = pcTree.buscar(palavras[i]);
         if(plvChave != NULL)
@@ -21,7 +24,8 @@ void Controle::run()
             plvChave->adicionarLinha(paginasPalavras[i]);
         }
     }
-    pcTree.criarArquivoIndice(arqIndice);
+    sameW += 5;
+    pcTree.criarArquivoIndice(arqIndice, sameW);
     mostrar();
 }
 
@@ -52,10 +56,13 @@ void Controle::splitarTexto(vector<string> texto)
     for(int i = 0; i < tam; i++)
     {
         string aux = "";
-        for(int j = 0; j < texto[i].length(); j++)
+        int tamLinha = texto[i].length();
+        for(int j = 0; j < tamLinha; j++)
         {
-            if(texto[i].at(j) == ' ')
+            if(texto[i].at(j) == ' ' || j == tamLinha-1)
             {
+                if(j == tamLinha-1)
+                    aux += texto[i].at(j);
                 palavras.push_back(aux);
                 paginasPalavras.push_back(i+1);
                 aux="";
@@ -88,14 +95,9 @@ bool Controle::isValida(string palavra)
     return false;
 }
 
-bool Controle::hasApostrofo(string palavra)
-{
-    return false;
-}
-
 void Controle::gerarArvPC()
 {
-    arqPalavrasChave.open("arquivos/palavras-chave.txt", ios::in);
+    arqPalavrasChave.open("arquivos/palavras-chave2.txt", ios::in);
 
     if(arqPalavrasChave.is_open())
     {
@@ -110,7 +112,7 @@ void Controle::gerarArvPC()
 
 void Controle::getTextoFromTXT()
 {
-    arqTexto.open("arquivos/texto.txt", ios::in);
+    arqTexto.open("arquivos/texto2.txt", ios::in);
 
     if(arqTexto.is_open())
     {

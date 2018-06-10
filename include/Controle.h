@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 #include <regex>
+#include <algorithm>
 
 #include "BinaryTree.h"
 
@@ -15,14 +16,13 @@ using namespace std;
 class Controle
 {
     public:
-        Controle(string, string);
+        Controle();
         void run();
     protected:
 
     private:
         static const int NUM_LINHA = 200;
         fstream arqTexto, arqPalavrasChave, arqIndice;
-        string nomeArqTexto, nomeArqPC;
         vector<string> sTexto;//200 linhas
         vector<string> palavras;
         vector<int> paginasPalavras;//50 palavras por linha
@@ -32,10 +32,10 @@ class Controle
         string filtrarPalavra(string);
         string filtrarApostrofo(string);
         bool isValida(string);
-        bool hasApostrofo(string);
         void gerarArvPC();
         void getTextoFromTXT();
         void mostrar();
+        int sameW;
 };
 
 #endif // CONTROLE_H

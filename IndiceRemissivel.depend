@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1528594152 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\main.cpp
+1528664074 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\main.cpp
 	<iostream>
 	"Controle.h"
 
@@ -13,32 +13,34 @@
 1528576513 c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\include\no.h
 	<iostream>
 
-1528610412 c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\include\binarytree.h
+1528664639 c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\include\binarytree.h
 	<fstream>
-	<iomanip>
+	<regex>
+	<algorithm>
 	"Node_B.h"
 
 1528576373 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\src\no.cpp
 	"No.h"
 
-1528582058 c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\include\node_b.h
+1528652379 c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\include\node_b.h
 	"DoublyLinkedList.h"
 
-1528582053 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\src\node_b.cpp
+1528652465 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\src\node_b.cpp
 	"Node_B.h"
 
-1528611011 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\src\binarytree.cpp
+1528665187 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\src\binarytree.cpp
 	"BinaryTree.h"
 
-1528610376 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\src\controle.cpp
+1528664623 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\src\controle.cpp
 	"Controle.h"
 
-1528610467 c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\include\controle.h
+1528664444 c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\include\controle.h
 	<fstream>
 	<iostream>
 	<stdio.h>
 	<string>
 	<vector>
 	<regex>
+	<algorithm>
 	"BinaryTree.h"
 

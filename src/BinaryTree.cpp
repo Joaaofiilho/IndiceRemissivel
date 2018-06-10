@@ -20,32 +20,46 @@ void BinaryTree::mostraremordem()
     cout << endl;
 }
 
-void BinaryTree::criarArquivoIndice(fstream& arqIndice)
+void BinaryTree::criarArquivoIndice(fstream& arqIndice, int sameW)
 {
     arqIndice.open("arquivos/indice.txt", ios::out);
     if(arqIndice.is_open())
-        criarArquivoIndice(root, arqIndice);
+        criarArquivoIndice(root, arqIndice, sameW);
     else cout << "Nao foi possivel criar/abrir o arquivo \"indice\"" << endl;
     arqIndice.close();
 }
 
-void BinaryTree::criarArquivoIndice(Node_B *tree, fstream& arqIndice)
+void BinaryTree::criarArquivoIndice(Node_B *tree, fstream& arqIndice, int sameW)
 {
     if (tree == NULL)
         return;
-    criarArquivoIndice(tree->left, arqIndice);
+    criarArquivoIndice(tree->left, arqIndice, sameW);
 
-    if(arqIndice.is_open())
+    if(arqIndice.is_open() && tree->linhas.getTam() != 0)
     {
-        arqIndice << tree->data << ": ";
+
+        string aux = filtrarApostrofo(tree->data);
+        arqIndice << aux << ":";
+        int tamP = filtrarApostrofo(tree->data).size();
+        int tab = sameW - tamP;
+        for(int i = 0; i < tab; i++)
+            arqIndice << " ";
         for(int i = 0; i < tree->linhas.getTam(); i++)
         {
-            arqIndice << tree->linhas.get(i) << " ";
+            int num = tree->linhas.get(i);
+            string format = to_string(num);
+            while(num < 100)
+            {
+                format = "0" + format;
+                num *= 10;
+            }
+            arqIndice << format << " ";
         }
+
         arqIndice << "\n";
     }
 
-    criarArquivoIndice(tree->right, arqIndice);
+    criarArquivoIndice(tree->right, arqIndice, sameW);
 }
 
 Node_B* BinaryTree::buscar(Node_B *tree, string data)
@@ -146,12 +160,15 @@ Node_B *BinaryTree::rl_rotation(Node_B *parent)
 Node_B *BinaryTree::balance(Node_B *temp)
 {
     int bal_factor = diff (temp);
+
     if (bal_factor > 1)
     {
+        cout << bal_factor << endl;
         if (diff (temp->left) > 0)
             temp = ll_rotation (temp);
         else
             temp = lr_rotation (temp);
+        mostraremordem();
     }
     else if (bal_factor < -1)
     {
@@ -173,12 +190,12 @@ Node_B *BinaryTree::insert(Node_B *root, string value)
         root = new Node_B(value);
         return root;
     }
-    else if (value < root->data)
+    else if (filtrarAcento(value) < root->data)
     {
         root->left = insert(root->left, value);
         //root = balance (root);
     }
-    else if (value >= root->data)
+    else if (filtrarAcento(value) >= root->data)
     {
         root->right = insert(root->right, value);
         //root = balance (root);
@@ -222,4 +239,33 @@ void BinaryTree::postorder(Node_B *tree)
     cout<<tree->data<<"  ";
 }
 
+string BinaryTree::filtrarAcento(string palavra)
+{
+    string aux = palavra;
+    replace(aux.begin(),aux.end(), 'á', 'a');
+    replace(aux.begin(),aux.end(), 'à', 'a');
+    replace(aux.begin(),aux.end(), 'ã', 'a');
+    replace(aux.begin(),aux.end(), 'é', 'e');
+    replace(aux.begin(),aux.end(), 'ê', 'e');
+    replace(aux.begin(),aux.end(), 'í', 'i');
+    replace(aux.begin(),aux.end(), 'ó', 'o');
+    replace(aux.begin(),aux.end(), 'õ', 'o');
+    replace(aux.begin(),aux.end(), 'ú', 'u');
+    replace(aux.begin(),aux.end(), 'ü', 'u');
+    replace(aux.begin(),aux.end(), 'ç', 'c');
+    return aux;
+}
 
+bool BinaryTree::hasApostrofo(string palavra)
+{
+    regex r("^.*\'.*$");
+    return regex_match(palavra, r);
+}
+
+string BinaryTree::filtrarApostrofo(string palavra)
+{
+    regex r(".*\'.*$");
+    while(regex_match(palavra, r))
+        palavra.erase(palavra.end()-1,palavra.end());
+    return palavra;
+}

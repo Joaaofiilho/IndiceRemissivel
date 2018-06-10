@@ -1,8 +1,55 @@
-and: 4 5 
-be: 3 
-by: 2 6 7 
-easy: 3 4 
-human-engineered: 5 
-programming: 1 7 
-programs: 3 
-to: 4 
+Darth:            042 
+Han:              053 
+Hoth:             041 
+Hutt:             055 
+Jabba:            055 
+Leia:             019 
+Lorde:            042 
+Luke:             038 050 056 
+Skywalker:        039 044 050 
+Solo:             053 
+Tatooine:         051 
+Vader:            043 
+agentes:          018 
+amigo:            053 
+arma:             011 064 
+bandido:          054 
+base:             004 033 040 
+batalha:          009 
+bélica:          060 
+casa:             020 
+definitiva:       064 
+desprezível:     054 
+espacial:         014 060 
+espaço:          047 
+espiões:         009 
+estação:        014 059 
+fim:              065 
+galáxia:         025 035 068 
+garras:           053 
+grupo:            037 066 
+guerra:           003 
+ideia:            043 
+jovem:            044 
+liberdade:        024 067 
+mal:              042 
+mundo:            041 
+natal:            051 
+nave:             021 
+naves:            005 
+pequeno:          065 
+perverso:         007 
+período:         003 028 
+planeta:          016 051 
+planos:           011 022 
+poder:            015 
+poderosa:         061 
+pontos:           046 
+povo:             023 
+princesa:         018 
+pronta:           063 
+rebeldes:         005 010 066 
+senhor:           042 
+sondas:           045 
+temida:           062 
+vitória:         007 

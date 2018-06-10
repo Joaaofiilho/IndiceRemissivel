@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    Controle *c = new Controle("texto2", "palavras-chave");
-    c->run();
+    Controle c;
+    c.run();
     return 0;
 }

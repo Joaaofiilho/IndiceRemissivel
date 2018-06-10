@@ -2,7 +2,8 @@
 #define BINARYTREE_H
 
 #include <fstream>
-#include <iomanip>
+#include <regex>
+#include <algorithm>
 #include "Node_B.h"
 
 using namespace std;
@@ -13,8 +14,8 @@ class BinaryTree
         BinaryTree();
         void inserir(string dado);
         void mostraremordem();
-        void criarArquivoIndice(Node_B *, fstream&);
-        void criarArquivoIndice(fstream&);
+        void criarArquivoIndice(Node_B *, fstream&, int);
+        void criarArquivoIndice(fstream&, int);
         Node_B* buscar(string);
     protected:
 
@@ -33,6 +34,9 @@ class BinaryTree
         void inorder(Node_B *);
         void preorder(Node_B *);
         void postorder(Node_B *);
+        string filtrarAcento(string);
+        bool hasApostrofo(string);
+        string filtrarApostrofo(string);
 };
 
 #endif // BINARYTREE_H
