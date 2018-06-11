@@ -1,9 +1,17 @@
 #ifndef BINARYTREE_H
 #define BINARYTREE_H
+#define MAXLEN 100
 
 #include <fstream>
 #include <regex>
 #include <algorithm>
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string>
+#include <string.h>
+#include <locale>
+#include <locale.h>
 #include "Node_B.h"
 
 using namespace std;
@@ -12,29 +20,24 @@ class BinaryTree
 {
     public:
         BinaryTree();
-        void inserir(string dado);
-        void mostraremordem();
         void criarArquivoIndice(Node_B *, fstream&, int);
         void criarArquivoIndice(fstream&, int);
-        Node_B* buscar(string);
+
+        void mostrarEmOrdem();
+        Node_B* inserir(string);
+        Node_B* buscar(string dado);
     protected:
 
     private:
         Node_B *root;
 
-        int height(Node_B *);
-        int diff(Node_B *);
-        Node_B *rr_rotation(Node_B *);
-        Node_B *ll_rotation(Node_B *);
-        Node_B *lr_rotation(Node_B *);
-        Node_B *rl_rotation(Node_B *);
-        Node_B* balance(Node_B *);
-        Node_B* insert(Node_B *, string );
-        Node_B* buscar(Node_B *, string );
-        void inorder(Node_B *);
-        void preorder(Node_B *);
-        void postorder(Node_B *);
-        string filtrarAcento(string);
+        Node_B* inserir(Node_B *aux, string dado);
+        Node_B* balancear(Node_B *aux);
+        Node_B* rotacaoEsquerda(Node_B *aux);
+        Node_B* rotacaoDireita(Node_B *aux);
+
+        void mostrarEmOrdem(Node_B *atual);
+        Node_B* buscar(string dado, Node_B *atual);
         bool hasApostrofo(string);
         string filtrarApostrofo(string);
 };

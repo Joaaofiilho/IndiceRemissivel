@@ -29,14 +29,20 @@ Node_B* Node_B::getRight()
 {
     return right;
 }
-void Node_B::setLeft(Node_B *left)
-{
-    this->left = left;
-}
 
-void Node_B::setRight(Node_B *right)
+int Node_B::calcularFB()
 {
-    this->right = right;
+    int a = 0;
+    int b = 0;
+
+    if (this->getLeft() != NULL)
+        a = this->getAltura(this->getLeft());
+    if (this->getRight() != NULL)
+        b = this->getAltura(this->getRight());
+
+    this->setFB(a - b);
+
+    return (a - b);
 }
 
 void Node_B::setDado(string dado)
@@ -56,7 +62,7 @@ void Node_B::setFB(int fb)
 
 int Node_B::getFB()
 {
-    return fb;
+    this->fb = fb;
 }
 
 void Node_B::incrementarFB()
@@ -87,13 +93,13 @@ int Node_B::getAltura(Node_B *atual)
     }
 }
 
-int Node_B::calcularFB()
+int calcularFB()
 {
     int ae = 0, ad = 0;
 
-    if (this->getLeft() != NULL)
+    if (getLeft() != NULL)
         ae = this->getAltura(this->getLeft());
-    if (this->getRight() != NULL)
+    if (getRight() != NULL)
         ad = this->getAltura(this->getRight());
     this->setFB(ae - ad);
     return (ae - ad);

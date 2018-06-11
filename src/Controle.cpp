@@ -85,11 +85,6 @@ string Controle::filtrarPalavra(string palavra)
     return palavra;
 }
 
-string Controle::filtrarApostrofo(string palavra)
-{
-    return "";
-}
-
 bool Controle::isValida(string palavra)
 {
     return false;
@@ -104,7 +99,7 @@ void Controle::gerarArvPC()
         string linha;
         while(getline(arqPalavrasChave, linha))
         {
-            pcTree.inserir(linha);
+            pcTree.inserir(toLowerCase(linha));
         }
     }else cout << "Nao foi possivel abrir o arquivo \"palavras-chave\"" << endl;
     arqPalavrasChave.close();
@@ -118,7 +113,25 @@ void Controle::getTextoFromTXT()
     {
         string linha;
         while(getline(arqTexto, linha))
-            sTexto.push_back(linha);
+            sTexto.push_back(toLowerCase(linha));
     }else cout << "Nao foi possivel abrir o arquivo \"texto\"" << endl;
     arqTexto.close();
+}
+
+string Controle::toLowerCase(string palavra)
+{
+    string minusculas = "aáâãàbcçdeéêfghiíjklmnoóôõpqrstuúüvwxyz";
+    string maiusculas = "AÁÂÃÀBCÇDEÉÊFGHIÍJKLMNOÓÔÕPQRSTUÚÜVWXYZ";
+    for(int i = 0; i < palavra.length(); i++)
+    {
+        for(int j = 0; j < maiusculas.length(); j++)
+        {
+            if(palavra[i] == maiusculas[j])
+            {
+                palavra[i] = minusculas[j];
+                break;
+            }
+        }
+    }
+    return palavra;
 }

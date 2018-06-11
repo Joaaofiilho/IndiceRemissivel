@@ -1,45 +1,51 @@
-Darth:            042 
-Han:              053 
-Hoth:             041 
-Hutt:             055 
-Jabba:            055 
-Leia:             019 
-Lorde:            042 
-Luke:             038 050 056 
-Skywalker:        039 044 050 
-Solo:             053 
-Tatooine:         051 
-Vader:            043 
-agentes:          018 
+agent:            018 
 amigo:            053 
 arma:             011 064 
 bandido:          054 
 base:             004 033 040 
 batalha:          009 
-b√©lica:          060 
+b„©lica:          060 
 casa:             020 
+darth:            042 
 definitiva:       064 
-desprez√≠vel:     054 
+desprez„≠vel:     054 
 espacial:         014 060 
-espa√ßo:          047 
-espi√µes:         009 
-esta√ß√£o:        014 059 
+espa„ßo:          047 
+esperan„ßa:       002 
+espi„µes:         009 
+esta„ß„£o:        014 059 
+estrela:          013 030 062 
 fim:              065 
-gal√°xia:         025 035 068 
+for„ßas:          029 
+frota:            036 
+gal„°ctico:       008 
+gal„°xia:         025 035 068 
 garras:           053 
 grupo:            037 066 
 guerra:           003 
+han:              053 
+hoth:             041 
+hutt:             055 
 ideia:            043 
+imperiais:        031 
+imperial:         037 
+imp„©rio:         008 012 018 027 
+jabba:            055 
+jedi:             049 
 jovem:            044 
+leia:             019 
 liberdade:        024 067 
+lorde:            042 
+luke:             038 050 056 
 mal:              042 
+morte:            013 030 062 
 mundo:            041 
 natal:            051 
 nave:             021 
 naves:            005 
 pequeno:          065 
 perverso:         007 
-per√≠odo:         003 028 
+per„≠odo:         003 028 
 planeta:          016 051 
 planos:           011 022 
 poder:            015 
@@ -48,8 +54,15 @@ pontos:           046
 povo:             023 
 princesa:         018 
 pronta:           063 
-rebeldes:         005 010 066 
+rebeldes:         005 010 029 033 038 066 
+retorno:          049 
 senhor:           042 
+skywalker:        039 044 050 
+solo:             053 
 sondas:           045 
+tatooine:         051 
 temida:           062 
-vit√≥ria:         007 
+tropas:           031 
+vader:            043 
+vit„≥ria:         007 
+Ôªøepis„≥dio:     001 

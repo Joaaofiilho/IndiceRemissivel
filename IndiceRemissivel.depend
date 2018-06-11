@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1528664074 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\main.cpp
+1528671142 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\main.cpp
 	<iostream>
+	<locale.h>
 	"Controle.h"
 
 1528607836 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\src\doublylinkedlist.cpp
@@ -13,28 +14,35 @@
 1528576513 c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\include\no.h
 	<iostream>
 
-1528664639 c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\include\binarytree.h
+1528674934 c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\include\binarytree.h
 	<fstream>
 	<regex>
 	<algorithm>
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<string>
+	<string.h>
+	<locale>
+	<locale.h>
 	"Node_B.h"
 
 1528576373 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\src\no.cpp
 	"No.h"
 
-1528652379 c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\include\node_b.h
+1528670064 c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\include\node_b.h
 	"DoublyLinkedList.h"
 
-1528652465 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\src\node_b.cpp
+1528670514 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\src\node_b.cpp
 	"Node_B.h"
 
-1528665187 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\src\binarytree.cpp
+1528674930 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\src\binarytree.cpp
 	"BinaryTree.h"
 
-1528664623 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\src\controle.cpp
+1528671313 source:c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\src\controle.cpp
 	"Controle.h"
 
-1528664444 c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\include\controle.h
+1528675261 c:\users\joaot\onedrive\햞ea de trabalho\meus-projetos\c++\clion\av3gilson\indiceremissivel\include\controle.h
 	<fstream>
 	<iostream>
 	<stdio.h>

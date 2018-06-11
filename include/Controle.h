@@ -28,9 +28,9 @@ class Controle
         vector<int> paginasPalavras;//50 palavras por linha
         BinaryTree pcTree;
 
+        string toLowerCase(string);
         void splitarTexto(vector<string>);
         string filtrarPalavra(string);
-        string filtrarApostrofo(string);
         bool isValida(string);
         void gerarArvPC();
         void getTextoFromTXT();
